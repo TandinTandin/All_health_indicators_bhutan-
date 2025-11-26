@@ -1,9 +1,11 @@
 import streamlit as st
 if 'Year' in df.columns and filters['value_col'] is not None:
-st.subheader("Time series by Year")
-ts = df.groupby('Year')[filters['value_col']].mean().reset_index()
-fig = px.line(ts, x='Year', y=filters['value_col'], markers=True, title=f"Average {filters['value_col']} by Year")
-st.plotly_chart(fig, use_container_width=True)
+    st.subheader("Time series by Year")
+    ts = df.groupby('Year')[filters['value_col']].mean().reset_index()
+    fig = px.line(ts, x='Year', y=filters['value_col'], markers=True,
+                  title=f"Average {filters['value_col']} by Year")
+    st.plotly_chart(fig, use_container_width=True)
+
 
 
 # Top regions bar chart
